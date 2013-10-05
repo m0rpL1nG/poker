@@ -1,7 +1,7 @@
 import unittest
 import poker
 class Testpoker(unittest.TestCase):
-    '''Example unittest test methods for hand_rank. [Return the hand rank of a hand]'''
+    '''Example unittest test methods for poker. [Return the hand rank of a hand]'''
     def test_poker(self):
     	'''Test test_poker with sf = ['JC', 'TC', '9C', '8C', '7C'] And sf2 = ['JS', 'TS', '9S', '8S', '7S'] '''
     	sf = ['JC', 'TC', '9C', '8C', '7C']
