@@ -17,8 +17,8 @@ def hand_rank(hand):
         return 8
     elif four_of_a_kind(hand):
         return 7
-#    elif fullhouse(hand):
-#        return 6
+    elif fullhouse(hand):
+        return 6
 #    elif flush(hand):
 #        return 5
 #    elif straight(hand):
@@ -63,4 +63,30 @@ def four_of_a_kind(hand):
     for r in rank:
         if rank.count(r) == 4:
             return True
+    return False
+
+
+def full_house(hand):
+    """
+    hand -> Bool
+
+    Return True if hand is full house
+    False otherwise
+    """
+    i = 0
+    rank = []
+    counted = []
+    cardindex = '--23456789TJQKA'
+    for r,s in hand:
+        rank.append(cardindex.index(r))
+    rank.sort()
+    for r in rank:
+        if rank.count(r) == 3 or rank.count(r) == 2:
+            if r not in counted:
+                i += 1
+                counted.append(r)
+    print counted
+    print i
+    if i == 2:
+        return True
     return False
