@@ -1,4 +1,4 @@
-def poker(hands):
+def poker(hand):
     """
     hand -> int
 
