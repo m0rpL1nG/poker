@@ -81,28 +81,30 @@ class Testpoker(unittest.TestCase):
         actual = poker.flush(st)
         expected = False
         self.assertEqual(actual,expected)
-    def test_flush(self):
+
+
+    def test_full_house(self):
         """
-        Test flush with flush hand
-        ['JC', 'TC', '9C', '8C', '7C']
+        Test full_house with full house hand
+
+        ['5H', '5S', '5D', '8C', '8S']
         """
-        fl = ['JC', 'TC', '9C', '8C', '7C']
-        actual = poker.flush(fl)
+        fh = ['5H', '5S', '5D', '8C', '8S']
+        actual = poker.full_house(fh)
         expected = True
         self.assertEqual(actual,expected)
 
-        
-    def test_flush_2(self):
+
+    def test_full_house_2(self):
         """
-        Test flush with straight hand
-        ['3C', '4S', '5D', '6C', '7S']
+        Test full_house with four of a kind hand
+
+        ['6H', '6S', '6D', '6C', 'KS']
         """
-        st = ['3C', '4S', '5D', '6C', '7S']
-        actual = poker.flush(st)
+        fk = ['6H', '6S', '6D', '6C', 'KS']
+        actual = poker.full_house(fk)
         expected = False
         self.assertEqual(actual,expected)
-        
-
         
 
 
