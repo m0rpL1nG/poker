@@ -218,6 +218,18 @@ class Testpoker(unittest.TestCase):
         self.assertEqual(actual,expected)
 
 
+    def test_three_of_a_kind_3(self):
+        """
+        Test three_of_a_kind with four of a kind hand
+
+        ['6H', '6S', '6D', '6C', 'KS']
+        """
+        fk = ['6H', '6S', '6D', '6C', 'KS']
+        actual = poker.three_of_a_kind(fk)
+        expected = False
+        self.assertEqual(actual,expected)
+
+
 
 if __name__ == '__main__':
     unittest.main(exit=False)
