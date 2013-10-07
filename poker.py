@@ -117,3 +117,19 @@ def full_house(hand):
     if i == 2:
         return True
     return False
+
+
+def onepair(hand):
+    """
+    hand -> Bool
+
+    Return True if hand is twopair
+    False otherwise
+    """
+    rank =[]
+    cardindex = '--23456789TJQKA'
+    for r,s in hand:
+        rank.append(cardindex.index(r))
+        if rank.count(int(r)) == 2 :
+            return True
+    return False
