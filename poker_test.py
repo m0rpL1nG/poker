@@ -4,12 +4,12 @@ class Testpoker(unittest.TestCase):
     '''Example unittest test methods for poker. [Return the hand rank of a hand]
     '''
     def test_poker(self):
-    	"""Test poker with straight flush hand
+        """Test poker with straight flush hand
 
         ['JC', 'TC', '9C', '8C', '7C']
         """
-    	sf = ['JC', 'TC', '9C', '8C', '7C']
-    	actual = poker.poker([sf])
+        sf = ['JC', 'TC', '9C', '8C', '7C']
+        actual = poker.poker([sf])
         expected = 8
         self.assertEqual(actual, expected)
 
@@ -59,7 +59,26 @@ class Testpoker(unittest.TestCase):
         actual = poker.four_of_a_kind(thk)
         expected = False
         self.assertEqual(actual,expected)
+    
+    def test_straight_flush(self):
+        """
+        Test straight flush with straight flush hand
+        ['6H', 'TH', '9H', '7H', '8H']
+        """
+        sf = ['6H', 'TH', '9H', '7H', '8H']
+        actual = poker.straight_flush(sf)
+        expected = True
+        self.assertEqual(actual,expected)
 
+    def test_straight_flush_2(self):
+        """
+        Test straight flush with straight hand
+        ['6C', 'TH', '9D', '7D', '8C']
+        """
+        st = ['6C', 'TH', '9D', '7D', '8C']
+        actual = poker.straight_flush(st)
+        expected = False
+        self.assertEqual(actual,expected)
         
     def test_flush(self):
         """
