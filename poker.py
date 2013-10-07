@@ -123,7 +123,7 @@ def onepair(hand):
     """
     hand -> Bool
 
-    Return True if hand is twopair
+    Return True if hand is onepair
     False otherwise
     """
     rank =[]
@@ -133,3 +133,18 @@ def onepair(hand):
         if rank.count(int(r)) == 2 :
             return True
     return False
+
+def twopair(hand):
+    """
+    hand -> Bool
+
+    Return True if hand is twopair
+    False otherwise
+    """
+    rank =[]
+    cardindex = '--23456789TJQKA'
+    for r,s in hand:
+        rank.append(cardindex.index(r))
+    if len(set(rank)) == 3 :
+        return True
+    return False  
