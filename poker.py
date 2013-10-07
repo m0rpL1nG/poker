@@ -147,4 +147,22 @@ def twopair(hand):
         rank.append(cardindex.index(r))
     if len(set(rank)) == 3 :
         return True
-    return False  
+    return False
+
+
+def three_of_a_kind(hand):
+    """
+    hand -> Bool
+
+    Return True if hand is three of a kind
+    False otherwise
+    """
+    rank =[]
+    cardindex = '--23456789TJQKA'
+    for r,s in hand:
+        rank.append(cardindex.index(r))
+    rank.sort()
+    for r in rank:
+        if rank.count(r) == 3:
+            return True
+    return False
