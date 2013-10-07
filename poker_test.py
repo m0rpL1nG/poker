@@ -150,7 +150,7 @@ class Testpoker(unittest.TestCase):
 
     def test_onepair(self):
         """
-        Test straight with straight hand
+        Test onepair with onepair hand
 
         ['4H', '5S', '3D', '6C', '7S']
         """
@@ -161,14 +161,38 @@ class Testpoker(unittest.TestCase):
 
     def test_onepair_2(self):
         """
-        Test straight with straight hand
+        Test onepair with straight hand
+
+        ['5S', '3H', '9D', '7C', '8S']
+        """
+        st = ['5S', '3H', '9D', '7C', '8S']
+        actual = poker.onepair(st)
+        expected = False
+        self.assertEqual(actual,expected)
+
+
+    def test_twopair(self):
+        """
+        Test twopair with twopair hand
+
+        ['5S', '5H', '9D', '8C', '8S']
+        """
+        tp = ['5S', '5H', '9D', '8C', '8S']
+        actual = poker.twopair(tp)
+        expected = True
+        self.assertEqual(actual,expected)
+
+    def test_twopair_2(self):
+        """
+        Test twopair with straight hand
 
         ['4H', '5S', '3D', '6C', '7S']
         """
-        op = ['5S', '3H', '9D', '7C', '8S']
-        actual = poker.onepair(op)
+        st = ['4H', '5S', '3D', '6C', '7S']
+        actual = poker.twopair(st)
         expected = False
         self.assertEqual(actual,expected)
+
 
 
 if __name__ == '__main__':
