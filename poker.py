@@ -36,6 +36,11 @@ def hand_rank(hand):
 def straight_flush(hand):
     pass
 
+def flush(hand):
+    box = []
+    for i in hand:
+        box.append(i[1])
+    return box[0] == box[1] == box[2] == box[3] == box[4]
 
 def four_of_a_kind(hand):
     """
