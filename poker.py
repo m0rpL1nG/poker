@@ -37,6 +37,12 @@ def straight_flush(hand):
     pass
 
 def flush(hand):
+    """
+    hand -> Bool
+
+    Return True if hand is flush
+    False otherwise
+    """
     box = []
     for i in hand:
         box.append(i[1])
