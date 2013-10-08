@@ -277,5 +277,18 @@ class Testpoker(unittest.TestCase):
         self.assertEqual(actual,expected)
 
 
+    def test_straight_2(self):
+        """
+        Test straight with four of a kind hand
+
+        ['AD', '2C', '4H', '5D', '3S']
+        """
+        fk = ['AD', '2C', '4H', '5D', '3S']
+        actual = poker.straight(fk)
+        expected = True
+        self.assertEqual(actual,expected)
+
+
+
 if __name__ == '__main__':
     unittest.main(exit=False)
