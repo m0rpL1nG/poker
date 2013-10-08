@@ -71,30 +71,7 @@ class Testpoker(unittest.TestCase):
         expected = 7
         self.assertEqual(actual, expected)
 
-
-    def test_four_of_a_kind(self):
-        """
-        Test four_of_a_kind with four of a kind hand
-
-        ['6H', '6S', '6D', '6C', 'KS']
-        """
-        fk = ['6H', '6S', '6D', '6C', 'KS']
-        actual = poker.four_of_a_kind(fk)
-        expected = True
-        self.assertEqual(actual,expected)
-
-
-    def test_four_of_a_kind_2(self):
-        """
-        Test four_of_a_kind with three of a kind hand
-
-        ['6H', '6S', '6D', '7C', 'KS']
-        """
-        thk = ['6H', '6S', '6D', '7C', 'KS']
-        actual = poker.four_of_a_kind(thk)
-        expected = False
-        self.assertEqual(actual,expected)
-    
+  
     def test_straight_flush(self):
         """
         Test straight flush with straight flush hand
@@ -229,41 +206,6 @@ class Testpoker(unittest.TestCase):
         self.assertEqual(actual,expected)
 
 
-    def test_three_of_a_kind(self):
-        """
-        Test three_of_a_kind with three of a kind hand
-
-        ['QS', 'QC', 'QD', '4H', '5H']
-        """
-        tk = ['QS', 'QC', 'QD', '4H', '5H']
-        actual = poker.three_of_a_kind(tk)
-        expected = True
-        self.assertEqual(actual,expected)
-
-
-    def test_three_of_a_kind_2(self):
-        """
-        Test three_of_a_kind with three of a kind hand
-
-        ['6H', '6S', '6D', '7C', 'KS']
-        """
-        tk = ['6H', '6S', '6D', '7C', 'KS']
-        actual = poker.three_of_a_kind(tk)
-        expected = True
-        self.assertEqual(actual,expected)
-
-
-    def test_three_of_a_kind_3(self):
-        """
-        Test three_of_a_kind with four of a kind hand
-
-        ['6H', '6S', '6D', '6C', 'KS']
-        """
-        fk = ['6H', '6S', '6D', '6C', 'KS']
-        actual = poker.three_of_a_kind(fk)
-        expected = False
-        self.assertEqual(actual,expected)
-
     def test_allmax(self):
         """
         Test test_allmax with straight flush and straight flush hands
@@ -286,6 +228,67 @@ class Testpoker(unittest.TestCase):
         fk = ['AD', '2C', '4H', '5D', '3S']
         actual = poker.straight(fk)
         expected = True
+        self.assertEqual(actual,expected)
+
+
+
+    def test_kind(self):
+        """
+        Test kind n = 3 with three of a kind hand
+
+        ['QS', 'QC', 'QD', '4H', '5H']
+        """
+        tk = ['QS', 'QC', 'QD', '4H', '5H']
+        actual = poker.kind(tk,3)
+        expected = True
+        self.assertEqual(actual,expected)
+
+
+    def test_kind_2(self):
+        """
+        Test kind n = 3 with three of a kind hand
+
+        ['6H', '6S', '6D', '7C', 'KS']
+        """
+        tk = ['6H', '6S', '6D', '7C', 'KS']
+        actual = poker.kind(tk,3)
+        expected = True
+        self.assertEqual(actual,expected)
+
+
+    def test_kind_3(self):
+        """
+        Test kind n = 3 with four of a kind hand
+
+        ['6H', '6S', '6D', '6C', 'KS']
+        """
+        fk = ['6H', '6S', '6D', '6C', 'KS']
+        actual = poker.kind(fk,3)
+        expected = False
+        self.assertEqual(actual,expected)
+
+
+    def test_kind_4(self):
+        """
+        Test kind n = 4 with four of a kind hand
+
+        ['6H', '6S', '6D', '6C', 'KS']
+        """
+        fk = ['6H', '6S', '6D', '6C', 'KS']
+        actual = poker.kind(fk,4)
+        expected = True
+        self.assertEqual(actual,expected)
+
+
+    def test_kind_5(self):
+        """
+        Test kind n = 4 with three of a kind hand
+
+        ['6H', '6S', '6D', '7C', 'KS']
+        """
+        thk = ['6H', '6S', '6D', '7C', 'KS']
+        actual = poker.kind(thk,4)
+        expected = False
         self.assertEqual(actual,expected)
 
 
