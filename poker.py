@@ -1,10 +1,10 @@
 def poker(hands):
     """
-    hand -> int
+    
+    Return the best hand from list of hands
 
-    Return the hand rank of a hand
     """
-    return hand_rank(hand)
+    return allmax(hands)
 
 def allmax(hands):
     winhand = max(hands, key=hand_rank)
