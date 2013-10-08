@@ -72,7 +72,7 @@ class Testpoker(unittest.TestCase):
 
     def test_straight_flush_2(self):
         """
-        Test straight flush with straight flush hand
+        Test straight flush with straight hand
         ['6C', 'TH', '9D', '7D', '8C']
         """
         st = ['6C', 'TH', '9D', '7D', '8C']
