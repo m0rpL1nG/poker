@@ -1,4 +1,4 @@
-def poker(hand):
+def poker(hands):
     """
     hand -> int
 
@@ -6,6 +6,14 @@ def poker(hand):
     """
     return hand_rank(hand)
 
+def allmax(hands):
+    winhand = max(hands, key=hand_rank)
+    maxval = hand_rank(winhand)
+    result = []
+    for hand in hands:
+        if hand_rank(hand) == maxval:
+            result.append(hand)
+    return result
 
 def hand_rank(hand):
     """
