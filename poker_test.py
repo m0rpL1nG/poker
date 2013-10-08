@@ -4,14 +4,49 @@ class Testpoker(unittest.TestCase):
     '''Example unittest test methods for poker. [Return the hand rank of a hand]
     '''
     def test_poker(self):
-        """Test poker with straight flush hand
+        """
 
-        ['JC', 'TC', '9C', '8C', '7C']
+        Test poker function with straight flush and straight flush hands
+
+        ['JC', 'TC', '9C', '8C', '7C'] and ['JS', 'TS', '9S', '8S', '7S']
+
         """
         sf = ['JC', 'TC', '9C', '8C', '7C']
-        actual = poker.poker(sf)
-        expected = 8
-        self.assertEqual(actual, expected)
+        sf2 = ['JS', 'TS', '9S', '8S', '7S']
+        actual = poker.poker([sf, sf2])
+        expected = [['JC', 'TC', '9C', '8C', '7C'], ['JS', 'TS', '9S', '8S', '7S']]
+        self.assertEqual(actual,expected)
+
+    def test_poker_2(self):
+        """
+
+        Test poker function with straight flush and four of a kind hands
+
+        ['JC', 'TC', '9C', '8C', '7C'] and ['5S', '5H', '5D', '5C', 'KS']
+
+        """
+        sf = ['JC', 'TC', '9C', '8C', '7C']
+        fk = ['5S', '5H', '5D', '5C', 'KS']
+        actual = poker.poker([sf, fk])
+        expected = [['JC', 'TC', '9C', '8C', '7C']]
+        self.assertEqual(actual,expected)
+
+        
+
+    def test_poker_3(self):
+        """
+
+        Test poker function with one pair and two pair hands
+
+        ['5S', '3H', '9D', '8C', '8S'] and ['5S', '5H', '9D', '8C', '8S']
+
+        """
+        op = ['5S', '3H', '9D', '8C', '8S']
+        tp = ['5S', '5H', '9D', '8C', '8S']
+        actual = poker.poker([op, tp])
+        expected = [['5S', '5H', '9D', '8C', '8S']]
+        self.assertEqual(actual,expected)
+
 
 
     def test_hand_rank(self):
@@ -229,7 +264,17 @@ class Testpoker(unittest.TestCase):
         expected = False
         self.assertEqual(actual,expected)
 
+    def test_allmax(self):
+        """
+        Test test_allmax with straight flush and straight flush hands
 
+        ['JC', 'TC', '9C', '8C', '7C'] and ['JS', 'TS', '9S', '8S', '7S']
+        """
+        sf = ['JC', 'TC', '9C', '8C', '7C']
+        sf2 = ['JS', 'TS', '9S', '8S', '7S']
+        actual = poker.allmax([sf, sf2])
+        expected = [['JC', 'TC', '9C', '8C', '7C'], ['JS', 'TS', '9S', '8S', '7S']]
+        self.assertEqual(actual,expected)
 
 
 if __name__ == '__main__':
