@@ -1,6 +1,6 @@
 def poker(hands):
     """
-
+    
     Return the best hand from list of hands
 
     """
@@ -25,20 +25,20 @@ def hand_rank(hand):
         return 8
     elif four_of_a_kind(hand):
         return 7
-    elif full_house(hand):
+    elif fullhouse(hand):
         return 6
-    elif flush(hand):
-        return 5
-    elif straight(hand):
-        return 4
-    elif three_of_a_kind(hand):
-        return 3
-    elif twopair(hand):
-        return 2
-    elif onepair(hand):
-        return 1
-    else:
-        return 0
+#    elif flush(hand):
+#        return 5
+#    elif straight(hand):
+#        return 4
+#    elif three_of_a_kind(hand):
+#        return 3
+#    elif twopair(hand):
+#        return 2
+#    elif onepair(hand):
+#        return 1
+#    else:
+#        return 0
 
 
 def straight_flush(hand):
@@ -120,8 +120,8 @@ def full_house(hand):
             if r not in counted:
                 i += 1
                 counted.append(r)
-    
-
+    print counted
+    print i
     if i == 2:
         return True
     return False
