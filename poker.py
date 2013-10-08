@@ -34,8 +34,16 @@ def hand_rank(hand):
 
 
 def straight_flush(hand):
-    pass
+    """
+    hand -> Bool
 
+    Return True if hand is straight flush
+    False otherwise
+    """
+    if straight(hand) == True and flush(hand) == True :
+        return True
+    else:
+        return False
 def flush(hand):
     """
     hand -> Bool
