@@ -23,7 +23,7 @@ def hand_rank(hand):
     """
     if straight_flush(hand):
         return 8
-    elif four_of_a_kind(hand):
+    elif kind(hand,4):
         return 7
     elif full_house(hand):
         return 6
@@ -31,7 +31,7 @@ def hand_rank(hand):
         return 5
     elif straight(hand):
         return 4
-    elif three_of_a_kind(hand):
+    elif kind(hand,3):
         return 3
     elif twopair(hand):
         return 2
@@ -83,22 +83,22 @@ def straight(hand):
     else :
         return False
 
-def four_of_a_kind(hand):
-    """
-    hand -> Bool
-
-    Return True if hand is four of a kind
-    False otherwise
-    """
-    rank =[]
-    cardindex = '--23456789TJQKA'
-    for r,s in hand:
-        rank.append(cardindex.index(r))
-    rank.sort()
-    for r in rank:
-        if rank.count(r) == 4:
-            return True
-    return False
+#def four_of_a_kind(hand):
+#    """
+#    hand -> Bool
+#
+#    Return True if hand is four of a kind
+#    False otherwise
+#    """
+#    rank =[]
+#    cardindex = '--23456789TJQKA'
+#    for r,s in hand:
+#        rank.append(cardindex.index(r))
+#    rank.sort()
+#    for r in rank:
+#        if rank.count(r) == 4:
+#            return True
+#    return False
 
 
 def full_house(hand):
@@ -156,11 +156,29 @@ def twopair(hand):
     return False
 
 
-def three_of_a_kind(hand):
+#def three_of_a_kind(hand):
+#    """
+#    hand -> Bool
+#
+#    Return True if hand is three of a kind
+#    False otherwise
+#    """
+#    rank =[]
+#    cardindex = '--23456789TJQKA'
+#    for r,s in hand:
+#        rank.append(cardindex.index(r))
+#    rank.sort()
+#    for r in rank:
+#        if rank.count(r) == 3:
+#            return True
+#    return False
+
+
+def kind(hand,n):
     """
     hand -> Bool
 
-    Return True if hand is three of a kind
+    Return True if hand is n kind
     False otherwise
     """
     rank =[]
@@ -169,6 +187,6 @@ def three_of_a_kind(hand):
         rank.append(cardindex.index(r))
     rank.sort()
     for r in rank:
-        if rank.count(r) == 3:
+        if rank.count(r) == n:
             return True
     return False
