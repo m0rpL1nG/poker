@@ -59,7 +59,26 @@ class Testpoker(unittest.TestCase):
         actual = poker.four_of_a_kind(thk)
         expected = False
         self.assertEqual(actual,expected)
+    
+    def test_straight_flush(self):
+        """
+        Test straight flush with straight flush hand
+        ['6H', 'TH', '9H', '7H', '8H']
+        """
+        sf = ['6H', 'TH', '9H', '7H', '8H']
+        actual = poker.straight_flush(fl)
+        expected = True
+        self.assertEqual(actual,expected)
 
+    def test_straight_flush_2(self):
+        """
+        Test straight flush with straight flush hand
+        ['6C', 'TH', '9D', '7D', '8C']
+        """
+        st = ['6C', 'TH', '9D', '7D', '8C']
+        actual = poker.straight_flush(st)
+        expected = False
+        self.assertEqual(actual,expected)
         
     def test_flush(self):
         """
