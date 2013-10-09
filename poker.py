@@ -25,7 +25,7 @@ def hand_rank(hand):
         return 8
     elif kind(hand,4):
         return 7
-    elif full_house(hand):
+    elif kind(hand,3) and kind(hand,2):
         return 6
     elif flush(hand):
         return 5
@@ -103,28 +103,28 @@ def straight(hand):
 #    return False
 
 
-def full_house(hand):
-    """
-    hand -> Bool
-
-    Return True if hand is full house
-    False otherwise
-    """
-    i = 0
-    rank = []
-    counted = []
-    cardindex = '--23456789TJQKA'
-    for r,s in hand:
-        rank.append(cardindex.index(r))
-    rank.sort()
-    for r in rank:
-        if rank.count(r) == 3 or rank.count(r) == 2:
-            if r not in counted:
-                i += 1
-                counted.append(r)
-    if i == 2:
-        return True
-    return False
+#def full_house(hand):
+#    """
+#    hand -> Bool
+#
+#    Return True if hand is full house
+#    False otherwise
+#    """
+#    i = 0
+#    rank = []
+#    counted = []
+#    cardindex = '--23456789TJQKA'
+#    for r,s in hand:
+#        rank.append(cardindex.index(r))
+#    rank.sort()
+#    for r in rank:
+#        if rank.count(r) == 3 or rank.count(r) == 2:
+#            if r not in counted:
+#                i += 1
+#                counted.append(r)
+#    if i == 2:
+#        return True
+#    return False
 
 
 #def onepair(hand):
@@ -142,20 +142,20 @@ def full_house(hand):
 #            return True
 #    return False
 
-#def twopair(hand):
-#    """
-#    hand -> Bool
-#
-#    Return True if hand is twopair
-#    False otherwise
-#    """
-#    rank =[]
-#    cardindex = '--23456789TJQKA'
-#    for r,s in hand:
-#        rank.append(cardindex.index(r))
-#    if len(set(rank)) == 3 :
-#        return True
-#    return False
+def twopair(hand):
+    """
+    hand -> Bool
+
+    Return True if hand is twopair
+    False otherwise
+    """
+    rank =[]
+    cardindex = '--23456789TJQKA'
+    for r,s in hand:
+        rank.append(cardindex.index(r))
+    if len(set(rank)) == 3 :
+        return True
+    return False
 
 
 #def three_of_a_kind(hand):
