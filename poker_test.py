@@ -114,29 +114,6 @@ class Testpoker(unittest.TestCase):
         self.assertEqual(actual,expected)
 
 
-    def test_full_house(self):
-        """
-        Test full_house with full house hand
-
-        ['5H', '5S', '5D', '8C', '8S']
-        """
-        fh = ['5H', '5S', '5D', '8C', '8S']
-        actual = poker.full_house(fh)
-        expected = True
-        self.assertEqual(actual,expected)
-
-
-    def test_full_house_2(self):
-        """
-        Test full_house with four of a kind hand
-
-        ['6H', '6S', '6D', '6C', 'KS']
-        """
-        fk = ['6H', '6S', '6D', '6C', 'KS']
-        actual = poker.full_house(fk)
-        expected = False
-        self.assertEqual(actual,expected)
-        
     def test_straight(self):
         """
         Test straight with straight hand
@@ -292,6 +269,30 @@ class Testpoker(unittest.TestCase):
         self.assertEqual(actual,expected)
 
 
+
+    def test_kind_6(self):
+        """
+        Test kind full house hand with full house hand
+
+        ['5H', '5S', '5D', '8C', '8S']
+        """
+        fh = ['5H', '5S', '5D', '8C', '8S']
+        actual = poker.kind(fh,3) and poker.kind(fh,2)
+        expected = True
+        self.assertEqual(actual,expected)
+
+
+    def test_kind_7(self):
+        """
+        Test kind full house hand with four of a kind hand
+
+        ['6H', '6S', '6D', '6C', 'KS']
+        """
+        fk = ['6H', '6S', '6D', '6C', 'KS']
+        actual = poker.kind(fk,3) and poker.kind(fk,2)
+        expected = False
+        self.assertEqual(actual,expected)
+        
 
 if __name__ == '__main__':
     unittest.main(exit=False)
