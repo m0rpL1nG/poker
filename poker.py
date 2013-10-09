@@ -50,8 +50,8 @@ def straight_flush(hand):
     """
     if straight(hand) == True and flush(hand) == True :
         return True
-    else:
-        return False
+    return False
+
 def flush(hand):
     """
     hand -> Bool
@@ -71,17 +71,19 @@ def straight(hand):
     Return True if hand is straight
     False otherwise
     """
-    lis = '23456789TJQKA'
+    lis = '-23456789TJQK'
     rank = []
     for i in hand:
+        if i[0] == 'A':
+            rank.append(0)
+            rank.append(13)
         for j in lis:
             if i[0] == j:
                 rank.append(lis.index(j))
     rank.sort()
     if rank[0]+1 == rank[1] and rank[1] +1 == rank[2] and rank[2]+1 == rank[3] and rank[3]+1 == rank[4]:
         return True
-    else :
-        return False
+    return False
 
 #def four_of_a_kind(hand):
 #    """
