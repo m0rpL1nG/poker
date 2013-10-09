@@ -35,7 +35,7 @@ def hand_rank(hand):
         return 3
     elif twopair(hand):
         return 2
-    elif onepair(hand):
+    elif kind(hand, 2):
         return 1
     else:
         return 0
@@ -127,20 +127,20 @@ def full_house(hand):
     return False
 
 
-def onepair(hand):
-    """
-    hand -> Bool
+#def onepair(hand):
+#    """
+#    hand -> Bool
 
-    Return True if hand is onepair
-    False otherwise
-    """
-    rank =[]
-    cardindex = '--23456789TJQKA'
-    for r,s in hand:
-        rank.append(cardindex.index(r))
-        if rank.count(int(r)) == 2 :
-            return True
-    return False
+#    Return True if hand is onepair
+#    False otherwise
+#    """
+#    rank =[]
+#    cardindex = '--23456789TJQKA'
+#    for r,s in hand:
+#        rank.append(cardindex.index(r))
+#        if rank.count(int(r)) == 2 :
+#            return True
+#    return False
 
 def twopair(hand):
     """
