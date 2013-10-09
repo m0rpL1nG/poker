@@ -167,7 +167,7 @@ class Testpoker(unittest.TestCase):
         ['4H', '5S', '3D', '6C', '7S']
         """
         op = ['5S', '3H', '9D', '8C', '8S']
-        actual = poker.onepair(op)
+        actual = poker.kind(op, 2)
         expected = True
         self.assertEqual(actual,expected)
 
@@ -178,7 +178,7 @@ class Testpoker(unittest.TestCase):
         ['5S', '3H', '9D', '7C', '8S']
         """
         st = ['5S', '3H', '9D', '7C', '8S']
-        actual = poker.onepair(st)
+        actual = poker.kind(st, 2)
         expected = False
         self.assertEqual(actual,expected)
 
