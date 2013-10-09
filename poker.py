@@ -34,7 +34,7 @@ def hand_rank(hand):
     elif kind(hand,3):
         return 3,kind(hand,3)
     elif twopair(hand):
-        return 2
+        return 2, twopair(hand)[0], twopair(hand)[1]
     elif kind(hand, 2):
         return 1,kind(hand,2)
     else:
@@ -151,10 +151,20 @@ def twopair(hand):
     """
     rank =[]
     cardindex = '--23456789TJQKA'
+    high_pair = 0
+    low_pair  = 0
     for r,s in hand:
         rank.append(cardindex.index(r))
-    if len(set(rank)) == 3 :
-        return True
+    rank.sort(reverse=True)
+    for r in rank:
+        if rank.count(r) == 2:
+            high_pair =  r
+    rank.sort()
+    for r in rank:
+        if rank.count(r) == 2:
+            low_pair =  r
+    if high_pair != low_pair:
+        return (high_pair, low_pair)
     return False
 
 
