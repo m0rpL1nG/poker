@@ -44,7 +44,6 @@ class Testpoker(unittest.TestCase):
         op = ['5S', '3H', '9D', '8C', '8S']
         tp = ['4S', '4H', '7D', '3C', '3S']
         actual = poker.poker([op, tp])
-        print '$$$$$$$$$$$$$',poker.poker([op, tp])
         expected = [['4S', '4H', '7D', '3C', '3S']]
         self.assertEqual(actual,expected)
 
@@ -169,7 +168,7 @@ class Testpoker(unittest.TestCase):
         """
         tp = ['5S', '5H', '9D', '8C', '8S']
         actual = poker.twopair(tp)
-        expected = True
+        expected = 5, 8
         self.assertEqual(actual,expected)
 
     def test_twopair_2(self):
