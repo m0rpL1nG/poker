@@ -42,9 +42,10 @@ class Testpoker(unittest.TestCase):
 
         """
         op = ['5S', '3H', '9D', '8C', '8S']
-        tp = ['5S', '5H', '9D', '8C', '8S']
+        tp = ['4S', '4H', '7D', '3C', '3S']
         actual = poker.poker([op, tp])
-        expected = [['5S', '5H', '9D', '8C', '8S']]
+        print '$$$$$$$$$$$$$',poker.poker([op, tp])
+        expected = [['4S', '4H', '7D', '3C', '3S']]
         self.assertEqual(actual,expected)
 
 
@@ -68,7 +69,7 @@ class Testpoker(unittest.TestCase):
         """
         fk = ['6H', '6S', '6D', '6C', 'KS']
         actual = poker.hand_rank(fk)
-        expected = 7
+        expected = 7,6
         self.assertEqual(actual, expected)
 
   
@@ -145,7 +146,7 @@ class Testpoker(unittest.TestCase):
         """
         op = ['5S', '3H', '9D', '8C', '8S']
         actual = poker.kind(op, 2)
-        expected = True
+        expected = 8
         self.assertEqual(actual,expected)
 
     def test_onepair_2(self):
@@ -156,7 +157,7 @@ class Testpoker(unittest.TestCase):
         """
         st = ['5S', '3H', '9D', '7C', '8S']
         actual = poker.kind(st, 2)
-        expected = False
+        expected = 0
         self.assertEqual(actual,expected)
 
 
@@ -204,7 +205,7 @@ class Testpoker(unittest.TestCase):
         """
         tk = ['QS', 'QC', 'QD', '4H', '5H']
         actual = poker.kind(tk,3)
-        expected = True
+        expected = 12
         self.assertEqual(actual,expected)
 
 
@@ -216,7 +217,7 @@ class Testpoker(unittest.TestCase):
         """
         tk = ['6H', '6S', '6D', '7C', 'KS']
         actual = poker.kind(tk,3)
-        expected = True
+        expected = 6
         self.assertEqual(actual,expected)
 
 
@@ -228,7 +229,7 @@ class Testpoker(unittest.TestCase):
         """
         fk = ['6H', '6S', '6D', '6C', 'KS']
         actual = poker.kind(fk,3)
-        expected = False
+        expected = 0
         self.assertEqual(actual,expected)
 
 
@@ -240,7 +241,7 @@ class Testpoker(unittest.TestCase):
         """
         fk = ['6H', '6S', '6D', '6C', 'KS']
         actual = poker.kind(fk,4)
-        expected = True
+        expected = 6
         self.assertEqual(actual,expected)
 
 
@@ -252,7 +253,7 @@ class Testpoker(unittest.TestCase):
         """
         thk = ['6H', '6S', '6D', '7C', 'KS']
         actual = poker.kind(thk,4)
-        expected = False
+        expected = 0
         self.assertEqual(actual,expected)
 
 
@@ -265,7 +266,7 @@ class Testpoker(unittest.TestCase):
         """
         fh = ['5H', '5S', '5D', '8C', '8S']
         actual = poker.kind(fh,3) and poker.kind(fh,2)
-        expected = True
+        expected = 8
         self.assertEqual(actual,expected)
 
 
