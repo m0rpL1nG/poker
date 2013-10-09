@@ -24,19 +24,19 @@ def hand_rank(hand):
     if straight_flush(hand)[0]:
         return 8,straight_flush(hand)[1]
     elif kind(hand,4):
-        return 7
+        return 7,kind(hand,4)
     elif kind(hand,3) and kind(hand,2):
-        return 6
+        return 6,kind(hand,3)
     elif flush(hand):
         return 5
     elif straight(hand)[0]:
         return 4,straight(hand)[1]
     elif kind(hand,3):
-        return 3
+        return 3,kind(hand,3)
     elif twopair(hand):
         return 2
     elif kind(hand, 2):
-        return 1
+        return 1,kind(hand,2)
     else:
         return 0
 
@@ -178,10 +178,10 @@ def twopair(hand):
 
 def kind(hand,n):
     """
-    hand -> Bool
+    hand -> int
 
-    Return True if hand is n kind
-    False otherwise
+    Return r if hand is n kind
+    0 otherwise
     """
     rank =[]
     cardindex = '--23456789TJQKA'
@@ -190,5 +190,5 @@ def kind(hand,n):
     rank.sort()
     for r in rank:
         if rank.count(r) == n:
-            return True
-    return False
+            return r
+    return 0
