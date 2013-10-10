@@ -48,9 +48,9 @@ def straight_flush(hand):
     Return True if hand is straight flush
     False otherwise
     """
-    if straight(hand)[0] == True and flush(hand) == True :
+    if straight(hand)[0] and flush(hand):
         return True,straight(hand)[1]
-    return False
+    return False,0
 
 def flush(hand):
     """
@@ -83,7 +83,7 @@ def straight(hand):
     rank.sort()
     if rank[0]+1 == rank[1] and rank[1] +1 == rank[2] and rank[2]+1 == rank[3] and rank[3]+1 == rank[4]:
         return True,max(rank)
-    return False
+    return False,0
 
 #def four_of_a_kind(hand):
 #    """
