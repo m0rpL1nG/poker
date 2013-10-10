@@ -99,7 +99,7 @@ class Testpoker(unittest.TestCase):
         """
         fl = ['JC', 'TC', '9C', '8C', '7C']
         actual = poker.flush(fl)
-        expected = True
+        expected = True,[10,9,8,7,6]
         self.assertEqual(actual,expected)
 
         
@@ -110,7 +110,7 @@ class Testpoker(unittest.TestCase):
         """
         st = ['3C', '4S', '5D', '6C', '7S']
         actual = poker.flush(st)
-        expected = False
+        expected = False,[6,5,4,3,2]
         self.assertEqual(actual,expected)
 
 
