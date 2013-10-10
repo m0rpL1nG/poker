@@ -27,8 +27,8 @@ def hand_rank(hand):
         return 7,kind(hand,4)
     elif kind(hand,3) and kind(hand,2):
         return 6,kind(hand,3)
-    elif flush(hand):
-        return 5
+    elif flush(hand)[0]:
+        return 5,flush(hand)[1]
     elif straight(hand)[0]:
         return 4,straight(hand)[1]
     elif kind(hand,3):
@@ -48,7 +48,7 @@ def straight_flush(hand):
     Return True if hand is straight flush
     False otherwise
     """
-    if straight(hand)[0] and flush(hand):
+    if straight(hand)[0] and flush(hand)[0]:
         return True,straight(hand)[1]
     return False,0
 
@@ -59,10 +59,17 @@ def flush(hand):
     Return True if hand is flush
     False otherwise
     """
+    li = '-23456789TJQKA'
+    ranks = []
     box = []
     for i in hand:
         box.append(i[1])
-    return box[0] == box[1] == box[2] == box[3] == box[4]
+        for j in li:
+            if i[0] == j:
+                ranks.append(li.index(j))
+    ranks.sort(reverse=True)
+    return box[0] == box[1] == box[2] == box[3] == box[4],ranks
+
 
 def straight(hand):
     """
