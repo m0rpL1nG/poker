@@ -21,8 +21,8 @@ def hand_rank(hand):
 
     Return the hand rank of a hand
     """
-    if straight_flush(hand):
-        return 8
+    if straight_flush(hand)[0]:
+        return 8,straight_flush(hand)[1]
     elif kind(hand,4):
         return 7
     elif kind(hand,3) and kind(hand,2):
@@ -48,8 +48,8 @@ def straight_flush(hand):
     Return True if hand is straight flush
     False otherwise
     """
-    if straight(hand) == True and flush(hand) == True :
-        return True
+    if straight(hand)[0] == True and flush(hand) == True :
+        return True,straight(hand)[1]
     return False
 
 def flush(hand):
