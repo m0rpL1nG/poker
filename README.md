@@ -8,18 +8,20 @@ Description
 
 1 Deck have 52 cards divided into 4 suits 1 suit have 13 ranks.
 
-*Suit
-	*S = Spade
-	*H = Heart
-	*D = Diamond
-	*C = Club
+* Suit
+	* S = Spade
+	* H = Heart
+	* D = Diamond
+	* C = Club
 
-*Rank
-	*A = Ace
-	*K = King
-	*Q = Queen
-	*J = Jack
-	*T = 10
+* Rank
+1 Suit have 13 ranks.  
+A K Q J T 9 8 7 6 5 4 3 2
+	* A = Ace
+	* K = King
+	* Q = Queen
+	* J = Jack
+	* T = 10
 
 Requirement
 -------
