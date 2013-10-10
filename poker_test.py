@@ -56,7 +56,7 @@ class Testpoker(unittest.TestCase):
         """
         sf = ['JC', 'TC', '9C', '8C', '7C']
         actual = poker.hand_rank(sf)
-        expected = 8
+        expected = 8,10
         self.assertEqual(actual, expected)
 
 
@@ -79,7 +79,7 @@ class Testpoker(unittest.TestCase):
         """
         sf = ['6H', 'TH', '9H', '7H', '8H']
         actual = poker.straight_flush(sf)
-        expected = True
+        expected = True,9
         self.assertEqual(actual,expected)
 
     def test_straight_flush_2(self):
@@ -89,7 +89,7 @@ class Testpoker(unittest.TestCase):
         """
         st = ['6C', 'TH', '9D', '7D', '8C']
         actual = poker.straight_flush(st)
-        expected = False
+        expected = False,0
         self.assertEqual(actual,expected)
         
     def test_flush(self):
@@ -122,7 +122,7 @@ class Testpoker(unittest.TestCase):
         """
         st = ['4H', '5S', '3D', '6C', '7S']
         actual = poker.straight(st)
-        expected = True
+        expected = True,6
         self.assertEqual(actual,expected)
 
 
@@ -134,7 +134,7 @@ class Testpoker(unittest.TestCase):
         """
         fk = ['6H', '6S', '6D', '6C', 'KS']
         actual = poker.straight(fk)
-        expected = False
+        expected = False,0
         self.assertEqual(actual,expected)
 
     def test_onepair(self):
@@ -194,19 +194,6 @@ class Testpoker(unittest.TestCase):
         actual = poker.allmax([sf, sf2])
         expected = [['JC', 'TC', '9C', '8C', '7C'], ['JS', 'TS', '9S', '8S', '7S']]
         self.assertEqual(actual,expected)
-
-
-    def test_straight_2(self):
-        """
-        Test straight with four of a kind hand
-
-        ['AD', '2C', '4H', '5D', '3S']
-        """
-        fk = ['AD', '2C', '4H', '5D', '3S']
-        actual = poker.straight(fk)
-        expected = True
-        self.assertEqual(actual,expected)
-
 
 
     def test_kind(self):
