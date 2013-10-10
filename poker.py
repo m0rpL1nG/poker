@@ -29,8 +29,8 @@ def hand_rank(hand):
         return 6
     elif flush(hand):
         return 5
-    elif straight(hand):
-        return 4
+    elif straight(hand)[0]:
+        return 4,straight(hand)[1]
     elif kind(hand,3):
         return 3
     elif twopair(hand):
@@ -82,7 +82,7 @@ def straight(hand):
                 rank.append(lis.index(j))
     rank.sort()
     if rank[0]+1 == rank[1] and rank[1] +1 == rank[2] and rank[2]+1 == rank[3] and rank[3]+1 == rank[4]:
-        return True
+        return True,max(rank)
     return False
 
 #def four_of_a_kind(hand):
