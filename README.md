@@ -23,6 +23,10 @@ A K Q J T 9 8 7 6 5 4 3 2
 	* J = Jack
 	* T = 10
 
+poker have 9 hand ranks you can see it from here.
+
+[http://www.pokerstars.com/poker/games/rules/hand-rankings/](http://www.pokerstars.com/poker/games/rules/hand-rankings/)
+
 Requirement
 -------
 
