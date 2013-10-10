@@ -33,12 +33,12 @@ def hand_rank(hand):
         return 4,straight(hand)[1]
     elif kind(hand,3):
         return 3,kind(hand,3)
-    elif twopair(ranks):
-        return 2, twopair(ranks)[0], twopair(ranks)[1], kind(1, ranks)
-    elif kind(2, ranks):
-        return 1, kind(2, ranks), ranks
+    elif twopair(hand):
+        return 2, twopair(hand)[0], twopair(hand)[1]
+    elif kind(hand, 2):
+        return 1,kind(hand,2)
     else:
-        return 0, ranks
+        return 0
 
 
 def straight_flush(hand):
@@ -209,3 +209,16 @@ def kind(hand,n):
         if rank.count(r) == n:
             return r
     return 0
+
+
+if __name__ == "__main__":
+    try:
+        chk = raw_input("how much hand do you want? : ")
+        hands = []
+        for x in xrange(1,eval(chk)+1):
+            hands.append(input("hand %d : " % x))
+        print "winner is :", poker(hands)
+    except TypeError:
+        print "Error. please check your input.(must be integer)"
+    except Exception:
+        print "Error. please check your input.(Hand must be list of string)"
