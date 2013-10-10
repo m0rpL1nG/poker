@@ -33,12 +33,12 @@ def hand_rank(hand):
         return 4,straight(hand)[1]
     elif kind(hand,3):
         return 3,kind(hand,3)
-    elif twopair(hand):
-        return 2, twopair(hand)[0], twopair(hand)[1]
-    elif kind(hand, 2):
-        return 1,kind(hand,2)
+    elif twopair(ranks):
+        return 2, twopair(ranks)[0], twopair(ranks)[1], kind(1, ranks)
+    elif kind(2, ranks):
+        return 1, kind(2, ranks), ranks
     else:
-        return 0
+        return 0, ranks
 
 
 def straight_flush(hand):
